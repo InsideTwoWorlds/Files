@@ -20,7 +20,7 @@ d:  68 00 01 00 00          push   0x100
 function ApplyTextInputFixes([Parameter(Mandatory = $true)] [byte[]]$bytes)
 {
 	"Injecting PeekMessageA function wrapper..."
-	$offset = 0x00574920
+	$offset = 0x00573d20
 	$bytes[$offset++] = 0x55
 	$bytes[$offset++] = 0x89
 	$bytes[$offset++] = 0xe5
@@ -60,7 +60,7 @@ function ApplyTextInputFixes([Parameter(Mandatory = $true)] [byte[]]$bytes)
 	$bytes[$offset] = 0x00
 	
 	"Injecting PeekMessageA function wrapper pointer..."
-	$offset = 0x00574918
+	$offset = 0x00573d18
 	$bytes[$offset++] = 0x20
 	$bytes[$offset++] = 0x49
 	$bytes[$offset++] = 0x97
@@ -68,7 +68,7 @@ function ApplyTextInputFixes([Parameter(Mandatory = $true)] [byte[]]$bytes)
 	
 
 	"Replacing PeekMessageA function addresses..."
-	$offset = 0x002e079a
+	$offset = 0x002dfb9a
 	$bytes[$offset++] = 0x18
 	$bytes[$offset++] = 0x49
 	$bytes[$offset++] = 0x97
